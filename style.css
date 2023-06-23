@@ -80,11 +80,7 @@ main {
 	grid-gap: 30px;
 }
 
-/* Coloca la sección de datos personales en la columna izquierda */
-.personal-info {
-	border-right: 2px solid #ccc;
-	padding-right: 30px;
-}
+
 
 /* Coloca la sección de educación en la columna izquierda */
 

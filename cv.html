@@ -31,9 +31,9 @@
 				<section class="experiencia-laboral">
 					<h2>Experiencia Laboral</h2>
 					<ul>
-							<li><strong>Software Developer</strong> - Banco Supervielle</li>
-							<li>Desarrollo y mantenimiento de sistemas y aplicaciones web.</li>
-							<li>Uso de lenguajes de programación como Java, JavaScript, HTML y CSS.</li>
+						<li><strong>Software Developer</strong> - Banco Supervielle</li>
+						<li>Desarrollo y mantenimiento de sistemas y aplicaciones web.</li>
+						<li>Uso de lenguajes de programación como Java, JavaScript, HTML y CSS.</li>
 					</ul>
 				</section>
 				<section>
@@ -51,7 +51,7 @@
 
 						<div class="form-group">
 							<label for="mensaje">Mensaje:</label>
-							<textarea class="form-control" id="mensaje" name="mensaje" placeholder="Mensaje" rows="5" required></textarea>
+							<textarea class="form-control" id="mensaje" name="mensaje" placeholder="Mensaje" rows="5"></textarea>
 						</div>
 
 						<div class="form-group">
@@ -64,56 +64,25 @@
 				</section>
 				<section id="submitted-data">
 					<h2>Datos enviados:</h2>
-					<ul id="submitted-list"></ul>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="ordenar-por">Ordenar por:</label>
+								<select class="form-control" id="ordenar-por">
+									<option value="nombre">Nombre</option>
+									<option value="email">Correo electrónico</option>
+									<option value="mensaje">Mensaje</option>
+									<option value="salario">Salario mínimo</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="row" id="submitted-list"></div>
 				</section>
 			</div>
 		</div>
 	</main>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<script>
-		const form = document.getElementById('contact-form');
-		const nameInput = document.getElementById('nombre');
-		const emailInput = document.getElementById('correo');
-		const messageInput = document.getElementById('mensaje');
-		const salaryInput = document.getElementById('sueldo');
-		const submittedList = document.getElementById('submitted-list');
-
-		form.addEventListener('submit', function(event) {
-			event.preventDefault();
-
-			const name = nameInput.value;
-			const email = emailInput.value;
-			const message = messageInput.value;
-			const salary = salaryInput.value;
-
-			const listItem = document.createElement('li');
-			listItem.innerHTML = `
-				<p><strong>Nombre:</strong> ${name}</p>
-				<p><strong>Correo electrónico:</strong> ${email}</p>
-				<p><strong>Mensaje:</strong> ${message}</p>
-				<p><strong>Sueldo mínimo:</strong> ${salary} ARS (${convertToCurrency(salary, 'USD')} USD, ${convertToCurrency(salary, 'EUR')} EUR)</p>
-			`;
-			submittedList.appendChild(listItem);
-
-			clearForm();
-		});
-
-		function clearForm() {
-			nameInput.value = '';
-			emailInput.value = '';
-			messageInput.value = '';
-			salaryInput.value = '';
-		}
-
-		function convertToCurrency(amount, currency) {
-			const exchangeRates = {
-				'USD': 450,  // Reemplazar con los tipos de cambio reales
-				'EUR': 500  // Reemplazar con los tipos de cambio reales
-			};
-
-			const convertedAmount = amount * exchangeRates[currency];
-			return convertedAmount.toFixed(2);
-		}
-	</script>
+	<script src="cv.js"></script>
 </body>
 </html>
